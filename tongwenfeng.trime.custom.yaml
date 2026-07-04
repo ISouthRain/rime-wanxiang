@@ -1,0 +1,78 @@
+# tongwenfeng.trime.custom.yaml
+patch:
+  "preset_keyboards/default/keys/@33/long_click": VOICE_ASSIST #将原来的符号键替换为语音键
+  "preset_keyboards/default/keys/@33/swipe_left": Left
+  "preset_keyboards/default/keys/@33/swipe_right": Right
+  "preset_keyboards/default/keys/@33/swipe_up": Up
+  "preset_keyboards/default/keys/@33/swipe_down": Down
+  # a右滑 TAB
+  "preset_keyboards/default/keys/@11/swipe_right": Tab
+  # s右滑 Ctrl-SPACE
+  "preset_keyboards/default/keys/@12/swipe_right": "{Control+space}"
+  # g右滑 Ctrl-=
+  "preset_keyboards/default/keys/@15/swipe_right": "{Control+=}"
+  # 右滑 切换 中/英文
+  "preset_keyboards/default/keys/@31/swipe_right": Mode_switch
+  # Ctrl/Alt
+  "preset_keyboards/default/keys/@0/swipe_down": "{Control+q}"
+  "preset_keyboards/default/keys/@0/swipe_up": "{Alt+q}"
+  "preset_keyboards/default/keys/@1/swipe_down": "{Control+w}"
+  "preset_keyboards/default/keys/@1/swipe_up": "{Alt+w}"
+  "preset_keyboards/default/keys/@2/swipe_down": "{Control+e}"
+  "preset_keyboards/default/keys/@2/swipe_up": "{Alt+e}"
+  "preset_keyboards/default/keys/@3/swipe_down": "{Control+r}"
+  "preset_keyboards/default/keys/@3/swipe_up": "{Alt+r}"
+  "preset_keyboards/default/keys/@4/swipe_down": "{Control+t}"
+  "preset_keyboards/default/keys/@4/swipe_up": "{Alt+t}"
+  "preset_keyboards/default/keys/@5/swipe_down": "{Control+y}"
+  "preset_keyboards/default/keys/@5/swipe_up": "{Alt+y}"
+  "preset_keyboards/default/keys/@6/swipe_down": "{Control+u}"
+  "preset_keyboards/default/keys/@6/swipe_up": "{Alt+u}"
+  "preset_keyboards/default/keys/@7/swipe_down": "{Control+i}"
+  "preset_keyboards/default/keys/@7/swipe_up": "{Alt+i}"
+  "preset_keyboards/default/keys/@8/swipe_down": "{Control+o}"
+  "preset_keyboards/default/keys/@8/swipe_up": "{Alt+o}"
+  "preset_keyboards/default/keys/@9/swipe_down": "{Control+p}"
+  "preset_keyboards/default/keys/@9/swipe_up": "{Alt+p}"
+
+  "preset_keyboards/default/keys/@11/swipe_down": "{Control+a}"
+  "preset_keyboards/default/keys/@11/swipe_up": "{Alt+a}"
+  "preset_keyboards/default/keys/@12/swipe_down": "{Control+s}"
+  "preset_keyboards/default/keys/@12/swipe_up": "{Alt+s}"
+  "preset_keyboards/default/keys/@13/swipe_down": "{Control+d}"
+  "preset_keyboards/default/keys/@13/swipe_up": "{Alt+d}"
+  "preset_keyboards/default/keys/@14/swipe_down": "{Control+f}"
+  "preset_keyboards/default/keys/@14/swipe_up": "{Alt+f}"
+  "preset_keyboards/default/keys/@15/swipe_down": "{Control+g}"
+  "preset_keyboards/default/keys/@15/swipe_up": "{Alt+g}"
+  "preset_keyboards/default/keys/@16/swipe_down": "{Control+h}"
+  "preset_keyboards/default/keys/@16/swipe_up": "{Alt+h}"
+  "preset_keyboards/default/keys/@17/swipe_down": "{Control+j}"
+  "preset_keyboards/default/keys/@17/swipe_up": "{Alt+j}"
+  "preset_keyboards/default/keys/@18/swipe_down": "{Control+k}"
+  "preset_keyboards/default/keys/@18/swipe_up": "{Alt+k}"
+  "preset_keyboards/default/keys/@19/swipe_down": "{Control+l}"
+  "preset_keyboards/default/keys/@19/swipe_up": "{Alt+l}"
+
+  "preset_keyboards/default/keys/@22/swipe_down": "{Control+z}"
+  "preset_keyboards/default/keys/@22/swipe_up": "{Alt+z}"
+  "preset_keyboards/default/keys/@23/swipe_down": "{Control+x}"
+  "preset_keyboards/default/keys/@23/swipe_up": "{Alt+x}"
+  "preset_keyboards/default/keys/@24/swipe_down": "{Control+c}"
+  "preset_keyboards/default/keys/@24/swipe_up": "{Alt+c}"
+  "preset_keyboards/default/keys/@25/swipe_down": "{Control+v}"
+  "preset_keyboards/default/keys/@25/swipe_up": "{Alt+v}"
+  "preset_keyboards/default/keys/@26/swipe_down": "{Control+b}"
+  "preset_keyboards/default/keys/@26/swipe_up": "{Alt+b}"
+  "preset_keyboards/default/keys/@27/swipe_down": "{Control+n}"
+  "preset_keyboards/default/keys/@27/swipe_up": "{Alt+n}"
+  "preset_keyboards/default/keys/@28/swipe_down": "{Control+m}"
+  "preset_keyboards/default/keys/@28/swipe_up": "{Alt+m}"
+
+  "preset_keyboards/default/keys/@32/swipe_down": "{Control+,}"
+  "preset_keyboards/default/keys/@32/swipe_up": "{Alt+,}"
+  "preset_keyboards/default/keys/@34/swipe_down": "{Control+.}"
+  "preset_keyboards/default/keys/@34/swipe_up": "{Alt+.}"
+  "preset_keyboards/default/keys/@35/swipe_down": "{Control+/}"
+  "preset_keyboards/default/keys/@35/swipe_up": "{Alt+/}"
+
