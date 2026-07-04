@@ -22,14 +22,17 @@ schema:
 switches:
   - name: ascii_mode  # 中英输入状态
     states: [中文, 英文]
+    reset: 1
   - name: ascii_punct  # 中英标点
     states: [中标, 英标]
+    reset: 1
   - name: full_shape  #全角、半角字符输出
     states: [半角, 全角]
   - name: emoji  #候选出现emoji滤镜，会显示在相应的候选后面，万象侧重于tips提示，避免候选被占用，因此默认为reset: 0，归属opencc emoji滤镜
     states: [表情关, 表情开]
   - name: chinese_english  #候选进入翻译模式滤镜，会显示在相应的候选后面，万象侧重于tips提示，避免候选被占用，快捷键配套ctrl+e,归属opencc 翻译滤镜
     states: [翻译关, 翻译开]
+    reset: 1
   - name: chaifen_switch  #开启后在候选的注释里面实时显示辅助码的拆分提醒优先级高于普通辅助提醒，不开启则采用系统配置，快捷键配套ctrl+c,影响的是comment_format，归属：super_comment.lua
     states: [拆分关, 拆分开]
   - name: charset_filter  #字符集过滤，默认开启8105通规显示，即小字集，可通过开关实时开启全字集，快捷键配套ctrl+g,归属：super_filter.lua
@@ -44,6 +47,7 @@ switches:
     #    reset: 2     #对于开关组从0开始数，第几个就reset几可设为默认
   - options: [comment_off, fuzhu_hint, tone_hint]  #开启后在候选的注释里面实时显示辅助码或者全拼声调，不开启则采用系统配置，影响的是comment_format，快捷键配套ctrl+a,归属：super_comment.lua
     states: [注释关, 辅助开, 读音开]
+    reset: 1
   - options: [s2s, s2t, s2hk, s2tw]  # 简繁转换开关组，可以在一个空选项和多个实际“- simplifier@s2hk”引入的项目之前切换，这是一个开关组，你可以将其中任意一个s2s等设置为toggle快捷键，多次按下将轮询
     states: [简体, 通繁, 港繁, 臺繁]
   - name: abbrev
@@ -107,14 +111,14 @@ engine:
     - lua_filter@*wanxiang.user_predict*F  #用于输入编码后的上下文调频
     - uniquifier  #去重,必须在最后
 
-grammar:
-  language: wanxiang-lts-zh-hans
-  collocation_max_length: 6
-  collocation_min_length: 2
-  collocation_penalty: -14
-  non_collocation_penalty: -6
-  weak_collocation_penalty: -100
-  rear_penalty: -18
+# grammar:
+#   language: wanxiang-lts-zh-hans
+#   collocation_max_length: 6
+#   collocation_min_length: 2
+#   collocation_penalty: -14
+#   non_collocation_penalty: -6
+#   weak_collocation_penalty: -100
+#   rear_penalty: -18
 
 # 主翻译器，拼音
 translator:
@@ -124,7 +128,7 @@ translator:
   enable_completion: true  # 启用候选词补全
   #  user_dict: zrm.userdb  # 用户词典的文件名称
   #  db_class: tabledb  #开启后就不会产生zrm.userdb这样的文件夹，会直接输出文本zrm.txt同时无法使用同步能力
-  enable_user_dict: false  # 是否开启自动调频
+  enable_user_dict: true  # 是否开启自动调频
   contextual_suggestions: false  #模型用来开启词组权重预测，效果一般关闭
   max_homophones: 8
   #  disable_user_dict_for_patterns:
@@ -233,7 +237,7 @@ speller:
   algebra:
     __patch:
       #- 模糊音             #模糊音选择性开启
-      - wanxiang_algebra:/pro/自然码  #拼音转双拼码
+      - wanxiang_algebra:/pro/小鹤双拼  #拼音转双拼码
       - wanxiang_algebra:/pro/直接辅助  #辅助码部分
 
 # 处理符合特定规则的输入码，如网址、反查
@@ -299,22 +303,22 @@ key_binder:
     # 分号用于次选，微软、搜狗双拼不可启用
     #- { when: has_menu, accept: semicolon, send: 2 }
     # 使用Control+e进入翻译模式
-    - {when: has_menu, accept: "Control+e", toggle: chinese_english}
+    # - {when: has_menu, accept: "Control+e", toggle: chinese_english}
     # 使用快捷键Control+c拆分显示
-    - {when: has_menu, accept: "Control+c", toggle: chaifen_switch}
+    # - {when: has_menu, accept: "Control+c", toggle: chaifen_switch}
     # 使用快捷键Control+a开启和关闭辅助码显示
-    - {when: has_menu, accept: "Control+a", toggle: fuzhu_hint}
+    # - {when: has_menu, accept: "Control+a", toggle: fuzhu_hint}
     # 通过快捷键Control+s使得输入码显示音调
-    - {when: has_menu, accept: "Control+s", toggle: tone_display}
+    # - {when: has_menu, accept: "Control+s", toggle: tone_display}
     # 通过快捷键Control+t开启超级tips
-    - {when: has_menu, accept: "Control+t", toggle: super_tips}
+    # - {when: has_menu, accept: "Control+t", toggle: super_tips}
     # 通过快捷键Control+g开启字符集过滤
-    - {when: has_menu, accept: "Control+g", toggle: charset_filter}
-    - {when: composing, accept: "Control+g", toggle: charset_filter}
+    # - {when: has_menu, accept: "Control+g", toggle: charset_filter}
+    # - {when: composing, accept: "Control+g", toggle: charset_filter}
     #通过快捷键Shift+space开启输入模式切换
     #- { when: always, accept: Shift+space, select: wanxiang }  #直接跳转指定方案
     #- { when: always, accept: Shift+space, select: wanxiang_pro }  #直接跳转指定方案
-    - {when: always, accept: Shift+space, select: .next}  #下一个方案
+    # - {when: always, accept: Shift+space, select: .next}  #下一个方案
     # 使用 tab 在不同音节之间跳转
     - {when: has_menu, accept: "Tab", send: "Control+Right"}
     - {when: composing, accept: "Tab", send: "Control+Right"}

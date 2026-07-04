@@ -1,0 +1,8 @@
+/build/*
+/lua/*.userdb/*
+*.userdb/*
+/user.yaml
+/installation.yaml
+/weasel.custom.yaml
+/default.custom.yaml
+/wanxiang*.custom.yaml
