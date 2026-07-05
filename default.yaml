@@ -6,6 +6,7 @@ config_version: 'LTS'
 
 # 方案列表
 schema_list:
+  - schema: wanxiang_pinyin
   - schema: wanxiang_pro
 #  - schema: wanxiang_english
 #  - schema: wanxiang_t9
